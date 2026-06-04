@@ -16,7 +16,7 @@
 
         body {
             font-family: sans-serif;
-            background-color: #0b0514; 
+            background-color: #0b0514;
             color: #ffffff;
             margin: 0;
             padding: 20px;
@@ -28,7 +28,7 @@
         }
 
         h1 {
-            color: #ff0055; 
+            color: #ff0055;
             text-shadow: 0 0 15px rgba(255, 0, 85, 0.7);
             margin-bottom: 5px;
             font-size: 2.5em;
@@ -41,40 +41,39 @@
             text-align: center;
             max-width: 600px;
         }
-        
+
         .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
             width: 100%;
-            max-width: 1400px; /* Сделали шире под 3 карточки */
-        
+            max-width: 1400px;
         }
 
-        `css
-           .card {
-               background-color: #170d29;
-               border-radius: 15px;
-               overflow: hidden;
-               border: 1px solid #3d1d66;
-               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-               padding: 25px;
-               text-align: center;
-               width: 100%;
-               max-width: 450px; /* Ограничили ширину одной карточки */
-               box-sizing: border-box;
-               transition: 0.3s;
-           }
-        }
-           .card:hover .card img {
-    transform: scale(1.03);
-    filter: blur(2px) contrast(1.2) brightness(0.95);
-       } 
-
+        /* КАРТОЧКА (Вернули на место) */
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            width: 100%;
+            max-width: 450px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* ЗАЩИТНЫЙ ФИЛЬТР: Размытие превью */
+        /* Эффект наведения на саму КАРТОЧКУ */
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ff0055;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
+        }
+
+        /* ЗАЩИТНЫЙ ФИЛЬТР: Размытие превью картинок */
         .card img {
             width: 100%;
             height: auto;
@@ -83,15 +82,17 @@
             border-radius: 8px;
             margin-bottom: 20px;
             pointer-events: none;
-            
             filter: blur(5px) contrast(1.2) brightness(0.9);
             image-rendering: pixelated;
             opacity: 0.8;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
         }
-        
-            .card:hover .card img {
-    transform: scale(1.03);
+
+        /* Эффект наведения на КАРТИНКУ (Исправили селектор) */
+        .card:hover img {
+            transform: scale(1.04);
+            filter: blur(1.5px) contrast(1.2) brightness(0.95);
+            opacity: 1;
         }
 
         .card-title {
@@ -125,8 +126,7 @@
             background-color: #d60048;
             box-shadow: 0 0 15px rgba(255, 0, 85, 0.7);
         }
-
-       </style>
+    </style>
 </head>
 <body>
 
@@ -140,8 +140,7 @@
             <div class="card-price">150 ₽</div>
             <a href="https://t.me/skalisss3?text=Привет!%20Хочу%20купить%20картину%20Горный%20закат" target="_blank" class="buy-btn">Купить оригинал</a>
         </div>
-
-        <div class="card">
+<div class="card">
             <img src="images/art2.png" alt="Вечер над долиной ИИ">
             <h2 class="card-title">Вечер над долиной</h2>
             <div class="card-price">170 ₽</div>
@@ -168,14 +167,13 @@
             <div class="card-price">250 ₽</div>
             <a href="https://t.me/skalisss3?text=Привет!%20Хочу%20купить%20картину%20Табун" target="_blank" class="buy-btn">Купить оригинал</a>
         </div>
-       
+
         <div class="card">
             <img src="images/spirit.jpg" alt="Дух горной долины ИИ">
             <h2 class="card-title">Дух горной долины</h2>
             <div class="card-price">250 ₽</div>
             <a href="https://t.me/skalisss3?text=Привет!%20Хочу%20купить%20картину%20Дух%20горной%20долины" target="_blank" class="buy-btn">Купить оригинал</a>
         </div>
-
 
     </div>
 
